@@ -16,7 +16,7 @@ gulp.task('browser-sync', function() {
     proxy: {
       target: 'http://localhost:3000'
     },
-    port: 8080
+    port: 8081
   });
 });
 
@@ -35,7 +35,7 @@ gulp.task('build', function() {
 
 // ローカルサーバーの起動
 gulp.task('server', function() {
-  node(['./server.js']);
+  node('./server.js', [], []);
 });
 
 // ファイル監視
