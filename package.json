@@ -1,0 +1,44 @@
+{
+  "name": "react-tutorial",
+  "version": "0.0.0",
+  "description": "Code from the React tutorial.",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babelify": "^6.4.0",
+    "body-parser": "^1.14.2",
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "jquery": "^2.2.0",
+    "marked": "^0.3.5",
+    "node-dev": "^2.6.2",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactjs/react-tutorial.git"
+  },
+  "keywords": [
+    "react",
+    "tutorial",
+    "comment",
+    "example"
+  ],
+  "author": "petehunt",
+  "bugs": {
+    "url": "https://github.com/reactjs/react-tutorial/issues"
+  },
+  "homepage": "https://github.com/reactjs/react-tutorial",
+  "engines": {
+    "node": "0.12.x"
+  }
+}
