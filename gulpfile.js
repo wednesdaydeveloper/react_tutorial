@@ -38,12 +38,13 @@ gulp.task('server', function() {
   node('./server.js', [], []);
 });
 
+
 // ファイル監視
 // ファイルに更新があったらビルドしてブラウザをリロードする
 gulp.task('watch', function() {
-  gulp.watch('./index.js', ['build']);
+  gulp.watch('./src/index.js', ['build']);
   gulp.watch('./index.html', ['build']);
-  gulp.watch('./components/*.js', ['build']);
+  gulp.watch('./src/components/*.js', ['build']);
 });
 
 // gulpコマンドで起動したときのデフォルトタスク
