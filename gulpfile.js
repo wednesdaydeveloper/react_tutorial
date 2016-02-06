@@ -3,8 +3,11 @@ var browserify = require('browserify');
 var browserSync = require('browser-sync');
 var buffer = require('vinyl-buffer');
 var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 var node = require('node-dev');
 var source = require('vinyl-source-stream');
+var babel = require('babel-core/register');
+var gutil = require('gulp-util');
 
 function errorHandler(err) {
   console.log('Error: ' + err.message);
@@ -38,6 +41,20 @@ gulp.task('server', function() {
   node('./server.js', [], []);
 });
 
+gulp.task('mocha', function(){
+  return gulp.src(['./test/**/*-spec.js'], { read: true })
+    .pipe(mocha({ reporter: 'list', compilers: {js: babel}, globals: {env: require('./tools/dom.js')} }))
+    .on('error', gutil.log);
+})
+
+gulp.task('lint', function(){
+  var eslint = require('gulp-eslint');
+  return gulp.src('./src/**/*.js')
+              .pipe( eslint({ useEslintrc: true }) )
+              .pipe( eslint.format() )
+              .pipe( eslint.failOnError() )
+});
+
 
 // ファイル監視
 // ファイルに更新があったらビルドしてブラウザをリロードする
@@ -48,4 +65,4 @@ gulp.task('watch', function() {
 });
 
 // gulpコマンドで起動したときのデフォルトタスク
-gulp.task('default', ['server', 'build', 'watch', 'browser-sync']);
+gulp.task('default', ['server', 'build', 'watch', 'lint', 'mocha','browser-sync']);
