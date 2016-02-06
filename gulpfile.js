@@ -23,7 +23,7 @@ gulp.task('browser-sync', function() {
 // Javascriptへのビルド
 // ES6かつJSXなファイル群をbuild/bundle.jsへ変換する
 gulp.task('build', function() {
-  browserify({entries: ['./index.js']})
+  browserify({entries: ['./src/index.js']})
     .transform(babelify)
     .bundle()
     .on('error', errorHandler)
